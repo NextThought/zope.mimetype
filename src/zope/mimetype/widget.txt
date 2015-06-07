@@ -1,6 +1,10 @@
 TranslatableSourceSelectWidget
 ==============================
 
+.. setup
+
+   >>> from six import u as _u
+
 TranslatableSourceSelectWidget is a SourceSelectWidget that translates
 and sorts the choices.
 
@@ -43,7 +47,7 @@ We will borrow the boring set up code from the SourceSelectWidget test
 
     >>> dog = zope.schema.Choice(
     ...    __name__ = 'dog',
-    ...    title=u"Dogs",
+    ...    title=_u("Dogs"),
     ...    source=SourceList(['spot', 'bowser', 'prince', 'duchess', 'lassie']),
     ...    )
     >>> dog = dog.bind(object())

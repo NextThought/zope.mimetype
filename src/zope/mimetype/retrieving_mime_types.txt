@@ -1,6 +1,10 @@
 Retrieving Content Type Information
 ===================================
 
+.. setup
+
+   >>> from six import u as _u
+
 MIME Types
 ----------
 
@@ -59,7 +63,7 @@ Finding Interfaces
 Given a MIME type we need to be able to find the appropriate interface.
 
     >>> from zope.mimetype.interfaces import IContentTypeInterface
-    >>> component.getUtility(IContentTypeInterface, name=u'text/plain')
+    >>> component.getUtility(IContentTypeInterface, name=_u('text/plain'))
     <InterfaceClass zope.mimetype.mtypes.IContentTypeTextPlain>
 
 It is also possible to enumerate all content type interfaces.

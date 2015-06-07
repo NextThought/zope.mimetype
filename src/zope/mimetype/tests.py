@@ -22,6 +22,8 @@ import zope.mimetype.interfaces
 from zope.component import testing
 from zope.testing import renormalizing
 
+from six import u as _u
+
 checker = renormalizing.RENormalizing([
     # Python 3 unicode removed the "u".
     (re.compile("u('.*?')"),
@@ -40,7 +42,7 @@ checker = renormalizing.RENormalizing([
 
 class ISampleContentTypeOne(zope.interface.Interface):
     """This is a sample content type interface."""
-ISampleContentTypeOne.setTaggedValue("title", u"Type One")
+ISampleContentTypeOne.setTaggedValue("title", _u("Type One"))
 ISampleContentTypeOne.setTaggedValue("extensions", [])
 ISampleContentTypeOne.setTaggedValue("mimeTypes", ["type/one", "type/foo"])
 
@@ -50,7 +52,7 @@ zope.interface.directlyProvides(
 
 class ISampleContentTypeTwo(zope.interface.Interface):
     """This is a sample content type interface."""
-ISampleContentTypeTwo.setTaggedValue("title", u"Type Two")
+ISampleContentTypeTwo.setTaggedValue("title", _u("Type Two"))
 ISampleContentTypeTwo.setTaggedValue("mimeTypes", [".ct2", ".ct3"])
 ISampleContentTypeTwo.setTaggedValue("mimeTypes", ["type/two"])
 
